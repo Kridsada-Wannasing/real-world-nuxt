@@ -1,9 +1,6 @@
-import EventService from './services/EventService'
+import EventService from './services/EventService.js'
 
 export default {
-  server: {
-    port: 8000
-  },
   mode: 'universal',
   /*
    ** Headers of the page

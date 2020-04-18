@@ -1,3 +1,5 @@
+import EventService from './services/EventService'
+
 export default {
   server: {
     port: 8000
@@ -58,5 +60,14 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  generate: {
+    routes: () => {
+      return EventService.getEvents().then((response) => {
+        return response.data.map((event) => {
+          return '/event/' + event.id
+        })
+      })
+    }
   }
 }
